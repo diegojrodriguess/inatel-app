@@ -1,0 +1,8 @@
+{
+  "name": "inatel-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "21a5436d"
+}
