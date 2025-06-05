@@ -29,7 +29,7 @@
             Disponível: {{ book.disponivel }} {{ book.disponivel === 1 ? 'unidade' : 'unidades' }}
           </div>
         </ion-label>
-        <ion-button slot="end" color="primary" class="alugar-btn">Alugar</ion-button>
+        <ion-button (click)="presentAlert(book)" slot="end" color="primary" class="alugar-btn">Alugar</ion-button>
       </ion-item>
     </ion-list>
   </ion-card-content>
