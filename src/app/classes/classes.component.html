@@ -6,18 +6,31 @@
   <ion-card-content>
     <ion-list>
       <ion-item *ngFor="let aula of classes">
-        <ion-label>
+        <ion-label style="width: 100%;">
+          <!-- Label de prova -->
+          <div *ngIf="aula.prova_alert"
+            style="background: var(--inatel-blue, #1976d2); color: #fff; border-radius: 16px; padding: 2px 16px; font-size: 0.95em; width: fit-content; margin-bottom: 4px;">
+            PROVA: {{ aula.prova }}
+          </div>
           <strong>{{ aula.disciplina }}</strong><br>
-          <span style="font-size: 0.95em;">{{ aula.sala }} - {{ aula.horario }}</span>
+          <span style="font-size: 0.95em;">
+            Local e Horário: {{ aula.local }} - {{ aula.horario }}
+          </span>
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <span
+              style="background: var(--inatel-blue, #1976d2); color: #fff; border-radius: 12px; padding: 2px 12px; font-size: 0.9em;">
+              FALTAS: {{ aula.frequencia }}
+            </span>
+            <span [ngClass]="{
+                'cr-vermelho': aula.nota < 6,
+                'cr-laranja': aula.nota >= 6 && aula.nota < 8,
+                'cr-verde': aula.nota >= 8
+              }" class="cr-pill">
+              CR: {{ aula.nota }}
+            </span>
+          </div>
         </ion-label>
-        <div style="display: flex; gap: 8px; margin-left: auto;">
-          <ion-icon name="today-outline"></ion-icon>
-          <ion-icon name="today-outline"></ion-icon>
-          <ion-icon name="today-outline"></ion-icon>
-        </div>
-        </ion-item>
+      </ion-item>
     </ion-list>
   </ion-card-content>
 </ion-card>
-
-

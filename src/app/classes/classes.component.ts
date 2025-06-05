@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf, NgClass } from '@angular/common';
 
 
 @Component({
   selector: 'app-classes',
   templateUrl: './classes.component.html',
   styleUrls: ['./classes.component.scss'],
-  imports: [IonicModule, NgFor]
+  imports: [IonicModule, NgFor, NgIf, NgClass]
 })
 export class ClassesComponent  implements OnInit {
 
@@ -16,9 +16,39 @@ export class ClassesComponent  implements OnInit {
   ngOnInit() {}
 
   classes = [
-    { disciplina: 'Matemática', sala: 'Prédio 1, Sala 5', horario: '08:00 - 09:40' },
-    { disciplina: 'Física', sala: 'Prédio 2, Sala 15', horario: '10:00 - 11:40' },
-    { disciplina: 'Eletrônica Digital', sala: 'Pŕedio 3, Sala 2', horario: '13:00 - 14:40' }
+    {
+      id: 1,
+      disciplina: "S05 - Interface Homem-máquina",
+      data: "ter",
+      horario: "10:00",
+      local: "Prédio 1, Sala 17",
+      prova_alert: false,
+      prova: "12/05",
+      frequencia: "10/25",
+      nota: 9
+    },
+    {
+      id: 2,
+      disciplina: "E01 - Circuitos Elétricos em Corrente Contínua",
+      data: "ter",
+      horario: "10:00",
+      local: "Prédio 1, Sala 17",
+      prova_alert: true,
+      prova: "12/05",
+      frequencia: "10/25",
+      nota: 5
+    },
+    {
+      id: 3,
+      disciplina: "M02 - Álgebra e Geometria Analítica",
+      data: "ter",
+      horario: "10:00",
+      local: "Prédio 1, Sala 17",
+      prova_alert: true,
+      prova: "12/05",
+      frequencia: "10/25",
+      nota: 7
+    }
   ];
 
 }

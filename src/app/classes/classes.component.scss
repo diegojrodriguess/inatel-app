@@ -1,0 +1,19 @@
+.cr-pill {
+  border-radius: 12px;
+  padding: 2px 12px;
+  font-size: 0.9em;
+  color: #fff;
+  background: var(--inatel-blue, #1976d2); // fallback, será sobrescrito pelas classes abaixo
+}
+
+.cr-vermelho {
+  background: #e53935;
+}
+
+.cr-laranja {
+  background: #fb8c00;
+}
+
+.cr-verde {
+  background: #43a047;
+}
