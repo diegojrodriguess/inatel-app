@@ -11,9 +11,15 @@
       </svg>
     </div>
     <ion-buttons slot="end">
+      <ion-menu-toggle auto-hide="false">
+        <ion-item lines="none" detail="false" (click)="toggleTheme()">
+          <ion-icon aria-hidden="true" slot="start" [name]="theme === 'dark' ? 'sunny' : 'moon'"></ion-icon>
+        </ion-item>
+      </ion-menu-toggle>      
       <ion-button>
         <ion-icon name="notifications-outline"></ion-icon>
       </ion-button>
+      
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

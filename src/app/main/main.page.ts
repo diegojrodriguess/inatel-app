@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class MainPage implements OnInit {
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    
   }
 
+  ngOnInit() { 
+  }
   messages = [
     { texto: 'Você possui um armário reservado com entrega para hoje.', lida: false },
     { texto: 'Você possui uma pendência no financeiro...', lida: true },
