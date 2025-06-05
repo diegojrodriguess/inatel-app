@@ -1,0 +1,35 @@
+.list-card {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+.book-author {
+  font-size: 0.95em;
+  color: var(--ion-color-medium);
+}
+
+.book-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.book-rating-value {
+  font-size: 0.95em;
+  color: #555;
+}
+
+.book-available {
+  font-size: 0.95em;
+  color: #1976d2;
+}
+
+.alugar-btn {
+  border-radius: 8px;
+}

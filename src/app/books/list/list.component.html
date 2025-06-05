@@ -1,0 +1,36 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Lista de Livros</ion-card-title>
+    <div class="book-author" style="margin-top: 4px;">
+      Encontre seu próximo livro para alugar
+    </div>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-searchbar
+      placeholder="Pesquisar livros..."
+      (ionInput)="onSearch($event)"
+      style="margin-bottom: 12px;">
+    </ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let book of filteredBooks" lines="none" class="list-card">
+        <ion-label>
+          <div class="book-title">{{ book.titulo }}</div>
+          <div class="book-author">{{ book.autor }}</div>
+          <div class="book-rating">
+            <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+              <ion-icon
+                [name]="book.nota >= i + 1 ? 'star' : (book.nota >= i + 0.5 ? 'star-half' : 'star-outline')"
+                style="font-size: 1.1em;">
+              </ion-icon>
+            </ng-container>
+            <span class="book-rating-value">{{ book.nota }}</span>
+          </div>
+          <div class="book-available">
+            Disponível: {{ book.disponivel }} {{ book.disponivel === 1 ? 'unidade' : 'unidades' }}
+          </div>
+        </ion-label>
+        <ion-button slot="end" color="primary" class="alugar-btn">Alugar</ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
