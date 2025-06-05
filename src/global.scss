@@ -63,3 +63,11 @@ ion-content {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+:root {
+  --inatel-blue: #1976d2; 
+}
+
+ion-icon {
+  color: var(--inatel-blue) !important;
+}
