@@ -1,0 +1,9 @@
+/* Layout principal */
+.container {
+    max-width: 414px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
