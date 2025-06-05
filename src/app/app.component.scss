@@ -117,3 +117,12 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+app-header, app-footer {
+  width: 100%;
+  max-width: 414px; 
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 10;
+}
