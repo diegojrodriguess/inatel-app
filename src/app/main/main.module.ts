@@ -8,6 +8,7 @@ import { MainPageRoutingModule } from './main-routing.module';
 
 import { MainPage } from './main.page';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from '../header/header.component';
     FormsModule,
     IonicModule,
     MainPageRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   declarations: [MainPage]
 })
