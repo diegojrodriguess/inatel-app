@@ -1,10 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <div class="container">
-    <app-header></app-header>
-    <app-footer></app-footer>
-  </div>  
+  <ion-content>
+    <div class="container">
+      <app-header></app-header>
 
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Mensagens</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let msg of messages">
+              <ion-icon name="mail-outline" slot="start"></ion-icon>
+              <ion-label>{{ msg.texto }}</ion-label>
+            </ion-item>
+          </ion-list>            
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Aulas</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let aula of classes" style="align-items: flex-start;">
+              <ion-label>
+                <strong>{{ aula.disciplina }}</strong><br>
+                <span style="font-size: 0.95em;">{{ aula.sala }} - {{ aula.horario }}</span>
+              </ion-label>
+              <div style="display: flex; gap: 8px; margin-left: auto; margin-top: 30px;">
+                <ion-icon name="today-outline"></ion-icon>
+                <ion-icon name="today-outline"></ion-icon>
+                <ion-icon name="today-outline"></ion-icon>
+              </div>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Notícias</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <swiper-container slides-per-view="1" navigation="true" style="width: 100%; max-width: 320px; margin: 0 auto;">
+            <swiper-slide *ngFor="let evento of events">
+              <ion-card style="min-width: 220px; max-width: 260px; margin: 0 auto;">
+                <img *ngIf="evento.image" [src]="evento.image" [alt]="evento.title" style="width: 100%; border-radius: 8px 8px 0 0;"/>
+                <ion-card-header>
+                  <ion-card-title>{{ evento.title }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>{{ evento.description }}</p>
+                  <p *ngIf="evento.date || evento.time || evento.location" style="font-size: 0.95em; color: var(--ion-color-medium); margin-top: 8px;">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    {{ evento.date }} às {{ evento.time }}
+                    <ion-icon name="location-outline" style="margin-left: 8px;"></ion-icon>
+                    {{ evento.location }}
+                  </p>
+                </ion-card-content>
+              </ion-card>
+            </swiper-slide>
+          </swiper-container>
+        </ion-card-content>
+      </ion-card>
+
+      <app-footer></app-footer>
+    </div>
+  </ion-content>
 </html>
 
 

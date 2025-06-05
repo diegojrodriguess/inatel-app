@@ -9,6 +9,7 @@ import { MainPageRoutingModule } from './main-routing.module';
 import { MainPage } from './main.page';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { FooterComponent } from '../footer/footer.component';
     HeaderComponent,
     FooterComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [MainPage]
 })
 export class MainPageModule {}
