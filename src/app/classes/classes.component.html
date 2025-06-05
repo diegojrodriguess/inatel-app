@@ -1,0 +1,23 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Aulas</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let aula of classes">
+        <ion-label>
+          <strong>{{ aula.disciplina }}</strong><br>
+          <span style="font-size: 0.95em;">{{ aula.sala }} - {{ aula.horario }}</span>
+        </ion-label>
+        <div style="display: flex; gap: 8px; margin-left: auto;">
+          <ion-icon name="today-outline"></ion-icon>
+          <ion-icon name="today-outline"></ion-icon>
+          <ion-icon name="today-outline"></ion-icon>
+        </div>
+        </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+
+

@@ -9,6 +9,9 @@ import { MainPageRoutingModule } from './main-routing.module';
 import { MainPage } from './main.page';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ClassesComponent } from '../classes/classes.component';
+import { MessagesComponent } from '../messages/messages.component';
+import { NewsComponent } from '../news/news.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
@@ -18,7 +21,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     IonicModule,
     MainPageRoutingModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ClassesComponent,
+    MessagesComponent,
+    NewsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [MainPage]
