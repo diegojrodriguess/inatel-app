@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Book } from 'src/app/models/book.model';
 import { BookRepository } from '../../repositories/book.repository';
 import { AlertController } from '@ionic/angular';
@@ -14,7 +14,7 @@ import { Router, NavigationEnd } from '@angular/router';
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  imports: [IonicModule, NgFor],
+  imports: [IonicModule, NgFor, NgIf],
   providers: [UserRepository]
 })
 export class ListComponent implements OnInit {
@@ -84,12 +84,11 @@ export class ListComponent implements OnInit {
             this.loanRepository.add(loan);
 
             //diminuindo a quantidade de livros disponíveis
-            book.quantidadeDisponivel--;
+            book.quantidade--;
             this.bookRepository.update(book.id, book);
 
-            // Atualizando a lista manualmente
-            this.books = this.bookRepository.getAll();
-            this.filteredBooks = this.books;
+            //atualizando a lista
+            this.reloadData();
 
             // Log the loan confirmation
             console.log(`Empréstimo confirmado para o livro: ${book.titulo}`);
