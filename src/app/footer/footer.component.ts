@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   imports: [IonicModule]
 })
 export class FooterComponent  implements OnInit {
-  selected = 'home';
+  selected = '/${this.selected}';
 
   constructor(private router: Router) { }
 

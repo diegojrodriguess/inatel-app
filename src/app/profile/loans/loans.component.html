@@ -1,0 +1,37 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Meus Empréstimos</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div>
+      <div *ngFor="let loan of loans; let last = last" class="loan-card" style="margin-bottom: 16px;">
+        <div style="font-weight: bold;">{{ loan.book.titulo }}</div>
+        <div style="color: #666;">{{ loan.book.autor }}</div>
+        <div style="margin: 8px 0;">
+          <ion-icon name="calendar-outline" style="color: #1976d2; font-size: 1em;"></ion-icon>
+          Emprestado: {{ loan.dataEmprestimo | date:'dd/MM/yyyy' }}
+          <br>
+          <ion-icon name="calendar-outline" style="color: #1976d2; font-size: 1em;"></ion-icon>
+          Devolução: {{ loan.dataDevolucao | date:'dd/MM/yyyy' }}
+        </div>
+        <div *ngIf="loan.multa > 0; else prazoRestante">
+          <span style="background: #e53935; color: #fff; border-radius: 8px; padding: 2px 10px; font-size: 0.95em;">
+            Atrasado ({{ loan.multa }} dias)
+          </span>
+          <span style="color: #e53935; font-weight: bold; margin-left: 8px;">
+            Multa: R${{ loan.multa}},00
+          </span>
+        </div>
+        <ng-template #prazoRestante>
+          <span style="background: #ffd600; color: #333; border-radius: 8px; padding: 2px 10px; font-size: 0.95em;">
+            {{ diasRestantes(loan) }} dias restantes
+          </span>
+        </ng-template>
+        <div style="margin-top: 8px;" *ngIf="loan.multa === 0">
+          <ion-button size="small" color="primary" fill="solid">Renovar</ion-button>
+        </div>
+        <div *ngIf="!last" style="height: 12px;"></div>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

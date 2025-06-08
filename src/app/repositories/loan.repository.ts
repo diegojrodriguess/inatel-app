@@ -1,6 +1,10 @@
 import { Loan } from "../models/loan.model";
 import { loans } from "../shared/mocks/loans.mock";
+import { Injectable } from "@angular/core";
 
+@Injectable({
+    providedIn: 'root'
+})
 export class LoanRepository {
     private loans: Loan[] = loans;
 
@@ -10,6 +14,10 @@ export class LoanRepository {
 
     getById(id: number): Loan | undefined {
         return this.loans.find(loan => loan.id === id);
+    }
+
+    getLoansByUserId(userId: number): Loan[] {
+        return this.loans.filter(loan => loan.user.id === userId);
     }
 
     add(loan: Loan): void {

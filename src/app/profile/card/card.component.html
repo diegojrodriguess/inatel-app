@@ -1,0 +1,24 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Meu Perfil</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 12px;">
+      <ion-avatar style="width: 56px; height: 56px;">
+        <ion-icon name="person-circle" style="font-size: 56px; color: #1976d2;"></ion-icon>
+      </ion-avatar>
+      <div>
+        <div style="font-weight: bold;">{{ user?.nome }}</div>
+        <div style="font-size: 0.95em; color: #888;">{{ user?.email }}</div>
+      </div>
+    </div>
+    <ion-item lines="none">
+      <ion-label>
+        <div style="display: flex; justify-content: space-between;">
+          <span>Curso </span>
+          <span style="font-weight: 500;">{{ user?.curso }}</span>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

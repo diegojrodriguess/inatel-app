@@ -1,7 +1,11 @@
 // book.repository.ts
 import { books } from '../shared/mocks/books.mock';
 import { Book } from '../models/book.model';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class BookRepository {
   private data: Book[] = books.map(b => new Book(b.id, b.titulo, b.autor, b.nota, b.quantidade, b.disponivel));
 
