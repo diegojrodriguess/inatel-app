@@ -6,9 +6,8 @@ export class Book {
         public nota: number,
         public quantidade: number,
         public disponivel: boolean
-    ) { }
-
-    verificarDisponibilidade(): boolean {
-        return this.disponivel;
+    ) {
+        // Garante que disponivel reflete a quantidade
+        this.disponivel = this.quantidade > 0;
     }
 }

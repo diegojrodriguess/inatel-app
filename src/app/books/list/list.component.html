@@ -26,7 +26,7 @@
             <span class="book-rating-value">{{ book.nota }}</span>
           </div>
           <div class="book-available">
-            Disponível: {{ book.disponivel }} {{ book.disponivel === 1 ? 'unidade' : 'unidades' }}
+            Disponível: {{ book.quantidade }} {{ book.quantidade === 1 ? 'unidade' : 'unidades' }}
           </div>
         </ion-label>
         <ion-button (click)="presentAlert(book)" slot="end" color="primary" class="alugar-btn">Alugar</ion-button>

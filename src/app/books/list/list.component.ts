@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
-import { BookService } from '../../services/books.service';
+import { Book } from 'src/app/models/book.model';
+import { BookRepository } from '../../repositories/book.repository';
 import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  imports: [IonicModule, NgFor]
+  imports: [IonicModule, NgFor],
+  providers: [BookRepository]
 })
 export class ListComponent implements OnInit {
-  books: any[] = [];
+  books: Book[] = [];
   filteredBooks = this.books;
   private searchTimeout: any;
 
-  constructor(private bookService: BookService, private alertController: AlertController) {
-    this.books = bookService.getLivros();
+  constructor(private bookRepository: BookRepository, private alertController: AlertController) {
+    this.books = bookRepository.getAll();
     this.filteredBooks = this.books;
   }
 

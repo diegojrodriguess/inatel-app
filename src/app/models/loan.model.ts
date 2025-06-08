@@ -10,16 +10,9 @@ export class Loan {
     public dataDevolucao: Date
   ) {}
 
-  validarEmprestimo(): boolean {
-    // Implementação fictícia
-    return true;
-  }
-
-  registrarDevolucao(): void {
-    // Implementação fictícia
-  }
-
-  renovarEmprestimo(): void {
-    // Implementação fictícia
+  get multa(): number {
+    const diffTime = this.dataDevolucao.getTime() - this.dataEmprestimo.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays > 14 ? diffDays - 14 : 0;
   }
 }

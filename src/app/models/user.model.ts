@@ -5,8 +5,4 @@ export class User {
     public matricula: string,
     public email: string
   ) {}
-
-  realizarEmprestimo(livro: any): void {
-    // Implementação fictícia
-  }
 }

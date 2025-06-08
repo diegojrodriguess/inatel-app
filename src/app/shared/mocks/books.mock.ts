@@ -1,122 +1,19 @@
-export const books = [
-    {
-        id: 1,
-        titulo: "O Senhor dos Anéis",
-        autor: "J.R.R. Tolkien",
-        nota: 4.5,
-        quantidade: 3,
-        disponivel: true
-    },
-    {
-        id: 2,
-        titulo: "Cem Anos de Solidão",
-        autor: "Gabriel García Márquez",
-        nota: 4.8,
-        quantidade: 1,
-        disponivel: true
-    },
-    {
-        id: 3,
-        titulo: "Dom Casmurro",
-        autor: "Machado de Assis",
-        nota: 4.2,
-        quantidade: 5,
-        disponivel: true
-    },
-    {
-        id: 4,
-        titulo: "A Metamorfose",
-        autor: "Franz Kafka",
-        nota: 4.3,
-        quantidade: 2,
-        disponivel: true
-    },
-    {
-        id: 5,
-        titulo: "Grande Sertão: Veredas",
-        autor: "Guimarães Rosa",
-        nota: 4.5,
-        quantidade: 4,
-        disponivel: true
-    },
-    {
-        id: 6,
-        titulo: "1984",
-        autor: "George Orwell",
-        nota: 4.7,
-        quantidade: 2,
-        disponivel: true
-    },
-    {
-        id: 7,
-        titulo: "O Pequeno Príncipe",
-        autor: "Antoine de Saint-Exupéry",
-        nota: 4.6,
-        quantidade: 7,
-        disponivel: true
-    },
-    {
-        id: 8,
-        titulo: "Crime e Castigo",
-        autor: "Fiódor Dostoiévski",
-        nota: 4.9,
-        quantidade: 1,
-        disponivel: true
-    },
-    {
-        id: 9,
-        titulo: "O Nome da Rosa",
-        autor: "Umberto Eco",
-        nota: 4.4,
-        quantidade: 3,
-        disponivel: true
-    },
-    {
-        id: 10,
-        titulo: "O Apanhador no Campo de Centeio",
-        autor: "J.D. Salinger",
-        nota: 4.1,
-        quantidade: 5,
-        disponivel: true
-    },
-    {
-        id: 11,
-        titulo: "Ensaio Sobre a Cegueira",
-        autor: "José Saramago",
-        nota: 4.6,
-        quantidade: 2,
-        disponivel: true
-    },
-    {
-        id: 12,
-        titulo: "Orgulho e Preconceito",
-        autor: "Jane Austen",
-        nota: 4.5,
-        quantidade: 6,
-        disponivel: true
-    },
-    {
-        id: 13,
-        titulo: "A Revolução dos Bichos",
-        autor: "George Orwell",
-        nota: 4.3,
-        quantidade: 4,
-        disponivel: true
-    },
-    {
-        id: 14,
-        titulo: "Os Miseráveis",
-        autor: "Victor Hugo",
-        nota: 4.8,
-        quantidade: 2,
-        disponivel: true
-    },
-    {
-        id: 15,
-        titulo: "O Processo",
-        autor: "Franz Kafka",
-        nota: 4.4,
-        quantidade: 1,
-        disponivel: true
-    }
+import { Book } from '../../models/book.model';
+
+export const books: Book[] = [
+    new Book(1, "O Senhor dos Anéis", "J.R.R. Tolkien", 4.5, 3, true),
+    new Book(2, "Cem Anos de Solidão", "Gabriel García Márquez", 4.8, 1, true),
+    new Book(3, "Dom Casmurro", "Machado de Assis", 4.2, 5, true),
+    new Book(4, "A Metamorfose", "Franz Kafka", 4.3, 2, true),
+    new Book(5, "Grande Sertão: Veredas", "Guimarães Rosa", 4.5, 4, true),
+    new Book(6, "1984", "George Orwell", 4.7, 2, true),
+    new Book(7, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", 4.6, 7, true),
+    new Book(8, "Crime e Castigo", "Fiódor Dostoiévski", 4.9, 1, true),
+    new Book(9, "O Nome da Rosa", "Umberto Eco", 4.4, 3, true),
+    new Book(10, "O Apanhador no Campo de Centeio", "J.D. Salinger", 4.1, 5, true),
+    new Book(11, "Ensaio Sobre a Cegueira", "José Saramago", 4.6, 2, true),
+    new Book(12, "Orgulho e Preconceito", "Jane Austen", 4.5, 6, true),
+    new Book(13, "A Revolução dos Bichos", "George Orwell", 4.3, 4, true),
+    new Book(14, "Os Miseráveis", "Victor Hugo", 4.8, 2, true),
+    new Book(15, "O Processo", "Franz Kafka", 4.4, 1, true)
 ];
