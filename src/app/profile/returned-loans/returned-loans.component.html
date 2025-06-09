@@ -1,38 +1,42 @@
-<ion-card>
+<ion-card class="returned-loans-card">
   <ion-card-header>
     <ion-card-title>Histórico de Empréstimos</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <div>
-      <div *ngFor="let loan of loans; let last = last" class="loan-card" style="margin-bottom: 16px;">
-        <div style="font-weight: bold;">{{ loan.book.titulo }}</div>
-        <div style="color: #666;">{{ loan.book.autor }}</div>
-        <div style="margin: 8px 0;">
-          <ion-icon name="calendar-outline" style="color: #1976d2; font-size: 1em;"></ion-icon>
-          Emprestado: {{ loan.dataEmprestimo | date:'dd/MM/yyyy' }}
-          <br>
-          <ion-icon name="calendar-outline" style="color: #1976d2; font-size: 1em;"></ion-icon>
-          Devolvido: {{ loan.dataDevolucaoReal | date:'dd/MM/yyyy' }}
+    <div class="loans-container">
+      <div *ngFor="let loan of loans; let last = last" class="loan-item">
+        <div class="book-title">{{ loan.book.titulo }}</div>
+        <div class="book-author">{{ loan.book.autor }}</div>
+        <div class="loan-dates">
+          <div class="date-item">
+            <ion-icon name="calendar-outline" class="date-icon"></ion-icon>
+            Emprestado: {{ loan.dataEmprestimo | date:'dd/MM/yyyy' }}
+          </div>
+          <div class="date-item">
+            <ion-icon name="calendar-outline" class="date-icon"></ion-icon>
+            Devolvido: {{ loan.dataDevolucaoReal | date:'dd/MM/yyyy' }}
+          </div>
         </div>
-        <div *ngIf="loan.multaCalculada > 0">
-          <span style="background: #e53935; color: #fff; border-radius: 8px; padding: 2px 10px; font-size: 0.95em;">
+        <div *ngIf="loan.multaCalculada > 0" class="fine-container">
+          <span class="fine-badge">
             Multa: R${{ loan.multaCalculada }},00
           </span>
-          <span style="color: #4caf50; margin-left: 8px;">
+          <span class="fine-status">
             {{ loan.multaPaga ? 'Pago' : 'Pendente' }}
           </span>
         </div>
-        <div style="margin-top: 8px;">
+        <div class="actions-container">
           <ion-button 
             (click)="reemprestarLivro(loan)" 
             size="small" 
             color="primary" 
             fill="solid"
-            [disabled]="loan.book.quantidade === 0">
+            [disabled]="loan.book.quantidade === 0"
+            class="action-button">
             {{ loan.book.quantidade > 0 ? 'Emprestar Novamente' : 'Indisponível' }}
           </ion-button>
         </div>
-        <div *ngIf="!last" style="height: 12px;"></div>
+        <div *ngIf="!last" class="divider"></div>
       </div>
     </div>
   </ion-card-content>

@@ -1,0 +1,115 @@
+.returned-loans-card {
+  margin: 16px;
+  width: calc(100% - 32px);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loans-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.loan-item {
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.book-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 4px;
+}
+
+.book-author {
+  color: #666;
+  font-size: 0.95em;
+  margin-bottom: 12px;
+}
+
+.loan-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.date-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95em;
+}
+
+.date-icon {
+  color: #1976d2;
+  font-size: 1.2em;
+}
+
+.fine-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.fine-badge {
+  background: #e53935;
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 0.95em;
+  display: inline-block;
+}
+
+.fine-status {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.actions-container {
+  margin-top: 12px;
+}
+
+.action-button {
+  width: 100%;
+}
+
+.divider {
+  height: 12px;
+}
+
+@media (max-width: 414px) {
+  .returned-loans-card {
+    margin: 8px;
+    width: calc(100% - 16px);
+  }
+
+  .loan-item {
+    padding: 8px;
+  }
+
+  .book-title {
+    font-size: 1em;
+  }
+
+  .book-author {
+    font-size: 0.9em;
+  }
+
+  .date-item {
+    font-size: 0.9em;
+  }
+
+  .fine-badge {
+    font-size: 0.9em;
+    padding: 3px 10px;
+  }
+
+  .fine-status {
+    font-size: 0.9em;
+  }
+}

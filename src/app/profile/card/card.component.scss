@@ -1,0 +1,57 @@
+.profile-card {
+  margin: 16px;
+  width: calc(100% - 32px);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  min-width: 56px; // Previne que o avatar encolha
+}
+
+.avatar-icon {
+  font-size: 56px;
+  color: #1976d2;
+}
+
+.user-details {
+  flex: 1;
+  min-width: 200px; // Garante espaço mínimo para o texto
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 4px;
+}
+
+.user-email {
+  font-size: 0.95em;
+  color: #888;
+}
+
+
+.course-name {
+  font-weight: 500;
+  color: #1976d2;
+}
