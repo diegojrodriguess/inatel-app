@@ -20,6 +20,14 @@ export class LoanRepository {
         return this.loans.filter(loan => loan.user.id === userId);
     }
 
+    getActiveLoansByUserId(userId: number): Loan[] {
+        return this.loans.filter(loan => loan.user.id === userId && !loan.devolvido);
+    }
+
+    getReturnedLoansByUserId(userId: number): Loan[] {
+        return this.loans.filter(loan => loan.user.id === userId && loan.devolvido);
+    }
+
     add(loan: Loan): void {
         this.loans.push(loan);
     }
@@ -33,5 +41,30 @@ export class LoanRepository {
 
     delete(id: number): void {
         this.loans = this.loans.filter(loan => loan.id !== id);
+    }
+
+    devolverLivro(id: number): void {
+        const loan = this.getById(id);
+        if (loan && !loan.devolvido) {
+            loan.devolvido = true;
+            loan.dataDevolucaoReal = new Date();
+            loan.multaCalculada = this.calcularMultaNaDevolucao(loan);
+            this.update(id, loan);
+        }
+    }
+
+    private calcularMultaNaDevolucao(loan: Loan): number {
+        if (!loan.dataDevolucaoReal) return 0;
+        const diffTime = loan.dataDevolucaoReal.getTime() - loan.dataEmprestimo.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays > 14 ? diffDays - 14 : 0;
+    }
+
+    pagarMulta(id: number): void {
+        const loan = this.getById(id);
+        if (loan && loan.devolvido && loan.multaCalculada > 0 && !loan.multaPaga) {
+            loan.multaPaga = true;
+            this.update(id, loan);
+        }
     }
 }

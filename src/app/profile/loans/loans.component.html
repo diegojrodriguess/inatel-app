@@ -27,8 +27,9 @@
             {{ diasRestantes(loan) }} dias restantes
           </span>
         </ng-template>
-        <div style="margin-top: 8px;" *ngIf="loan.multa === 0">
-          <ion-button (click)="renovarEmprestimo(loan)"size="small" color="primary" fill="solid">Renovar</ion-button>
+        <div style="margin-top: 8px; display: flex; gap: 8px;">
+          <ion-button (click)="renovarEmprestimo(loan)" size="small" color="primary" fill="solid" *ngIf="loan.multa === 0">Renovar</ion-button>
+          <ion-button (click)="devolverLivro(loan)" size="small" color="success" fill="solid">Devolver</ion-button>
         </div>
         <div *ngIf="!last" style="height: 12px;"></div>
       </div>

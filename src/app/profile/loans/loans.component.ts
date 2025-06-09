@@ -6,6 +6,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { BookRepository } from 'src/app/repositories/book.repository';
 
 @Component({
   selector: 'app-loans',
@@ -15,12 +16,14 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoansComponent implements OnInit {
   loans: Loan[] = [];
-  constructor(private loanRepository: LoanRepository, private router: Router, private alertController: AlertController) {
-  }
+  constructor(
+    private loanRepository: LoanRepository,
+    private bookRepository: BookRepository,
+    private router: Router,
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
-    console.log(this.loans);
-
     this.reloadData();
 
     this.router.events.subscribe(event => {
@@ -31,7 +34,7 @@ export class LoansComponent implements OnInit {
   }
 
   reloadData() {
-    this.loans = this.loanRepository.getLoansByUserId(1);
+    this.loans = this.loanRepository.getActiveLoansByUserId(1);
   }
 
   diasRestantes(loan: Loan): number {
@@ -54,10 +57,42 @@ export class LoansComponent implements OnInit {
         {
           text: 'Confirmar',
           handler: () => {
-            const days = 7; // Defina o número de dias para renovação
+            const days = 7;
             loan.dataEmprestimo = new Date(loan.dataEmprestimo.getTime() + days * 24 * 60 * 60 * 1000);
             loan.dataDevolucao = new Date(loan.dataDevolucao.getTime() + days * 24 * 60 * 60 * 1000);
             this.loanRepository.update(loan.id, loan);
+            this.reloadData();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async devolverLivro(loan: Loan) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar Devolução',
+      message: `
+      Tem certeza que deseja devolver o livro "${loan.book.titulo}"?
+      ${loan.multa > 0 ? `\n\nMulta pendente: R$${loan.multa},00` : ''}
+      `,
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Confirmar',
+          handler: () => {
+            // Devolve o livro
+            this.loanRepository.devolverLivro(loan.id);
+            
+            // Atualiza a quantidade do livro
+            const book = loan.book;
+            book.quantidade++;
+            this.bookRepository.update(book.id, book);
+            
             this.reloadData();
           }
         }

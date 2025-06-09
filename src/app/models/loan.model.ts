@@ -5,6 +5,10 @@ let nextLoanId = 1;
 
 export class Loan {
   public id: number;
+  public devolvido: boolean = false;
+  public dataDevolucaoReal?: Date;
+  public multaPaga: boolean = false;
+  public multaCalculada: number = 0;
 
   constructor(
     book: Book,
@@ -21,8 +25,12 @@ export class Loan {
   user: User;
 
   get multa(): number {
-    const diffTime = this.dataDevolucao.getTime() - this.dataEmprestimo.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays > 14 ? diffDays - 14 : 0;
+    if (!this.devolvido) {
+      const hoje = new Date();
+      const diffTime = hoje.getTime() - this.dataEmprestimo.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays > 14 ? diffDays - 14 : 0;
+    }
+    return this.multaCalculada;
   }
 }
