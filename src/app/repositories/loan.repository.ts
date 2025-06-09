@@ -49,6 +49,7 @@ export class LoanRepository {
             loan.devolvido = true;
             loan.dataDevolucaoReal = new Date();
             loan.multaCalculada = this.calcularMultaNaDevolucao(loan);
+            loan.multaPaga = true;
             this.update(id, loan);
         }
     }

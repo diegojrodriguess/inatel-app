@@ -9,6 +9,8 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 import { ProfilePage } from './profile.page';
 import { CardComponent } from './card/card.component';
 import { LoansComponent } from './loans/loans.component';
+import { ReturnedLoansComponent } from './returned-loans/returned-loans.component';
+import { SelectLoansComponent } from './select-loans/select-loans.component';
 
 @NgModule({
   imports: [
@@ -17,7 +19,7 @@ import { LoansComponent } from './loans/loans.component';
     IonicModule,
     ProfilePageRoutingModule,
     CardComponent,
-    LoansComponent
+    SelectLoansComponent,
   ],
   declarations: [ProfilePage]
 })

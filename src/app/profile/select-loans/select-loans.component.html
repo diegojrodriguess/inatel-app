@@ -1,0 +1,13 @@
+<ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="active">
+    <ion-label>Empréstimos Ativos</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="returned">
+    <ion-label>Empréstimos Devolvidos</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+<div [ngSwitch]="selectedSegment">
+  <app-loans *ngSwitchCase="'active'"></app-loans>
+  <app-returned-loans *ngSwitchCase="'returned'"></app-returned-loans>
+</div>
